@@ -1,5 +1,3 @@
-# Project README
-
 ## Overview
 
 This project is aimed at creating a production machine events calendar application using Electron, Vite.js, and React. The calendar will display scheduled events based on data stored in Excel files. The technologies used include React for the frontend, Electron for the desktop application, Vite.js for efficient development, and Tailwind CSS for styling.
@@ -15,14 +13,16 @@ The project relies on the following key dependencies:
 
 The primary goal is to generate a calendar for events on production machines. The events are recorded in an Excel file with the following format:
 
-| Date de début | Heure | Durée | Récurrence en jours | Opération                          |
-| ------------- | ----- | ----- | ------------------- | ---------------------------------- |
-| 19/01/2024    | 10:30 | 01:30 | 7                   | Nettoyage                          |
-| 16/01/2024    | 11:00 | 00:30 | 14                  | Changement outil meche de 3        |
-| 17/01/2024    | 11:00 | 00:30 | 56                  | Changement outil fraise à rainurer |
-| 18/01/2024    | 11:00 | 00:30 | 28                  | Graissage                          |
+Certainly! Here is the table in English for the requirements section:
 
-The application should be capable of generating schedules for multiple machines simultaneously and handling various event lists within the same Excel file.
+| Start Date | Time  | Duration | Recurrence in Days | Operation                     |
+| ---------- | ----- | -------- | ------------------ | ----------------------------- |
+| 19/01/2024 | 10:30 | 01:30    | 7                  | Cleaning                      |
+| 16/01/2024 | 11:00 | 00:30    | 14                 | Tool Change for 3mm Drill     |
+| 17/01/2024 | 11:00 | 00:30    | 56                 | Tool Change for Groove Cutter |
+| 18/01/2024 | 11:00 | 00:30    | 28                 | Lubrication                   |
+
+The application should be capable of generating schedules for multiple machines simultaneously and handling various event lists within the same Excel file. Additionally, the calendar should be printable for easy use in the manufacturing environment.
 
 ## Usage
 
