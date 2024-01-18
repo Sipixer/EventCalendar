@@ -6,12 +6,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
       - name: Build
-        run: echo ${{ github.sha }} > Release.txt
-      - name: Test
-        run: cat Release.txt
+        run: pnpm run build:win
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
           tag_name: alpha
-          files: Release.txt
+          files: dist/calendar 1.0.0.exe
