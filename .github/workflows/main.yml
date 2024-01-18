@@ -15,7 +15,7 @@ jobs:
           node-version: latest
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: sudo apt-get install --no-install-recommends -y libopenjp2-tools && pnpm install
       - name: Build
         run: pnpm run build:win
       - name: Release
