@@ -85,7 +85,6 @@ function getPath() {
 }
 
 export async function loadAllXlsxInDb() {
-  console.time('loadAllXlsxInDb')
   const path = getPath()
   const files = fs.readdirSync(path)
   const machines: {
@@ -105,7 +104,6 @@ export async function loadAllXlsxInDb() {
       machines.push(...getEventMachineFromWorkbook(workbook))
     }
   }
-  console.timeEnd('loadAllXlsxInDb')
   return machines
 }
 

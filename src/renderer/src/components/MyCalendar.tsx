@@ -6,6 +6,7 @@ import getDay from 'date-fns/getDay'
 import fr from 'date-fns/locale/fr'
 
 import Swal from 'sweetalert2'
+import { useSettingsStore } from '@renderer/store/settings'
 
 const locales = {
   fr: fr
@@ -56,9 +57,13 @@ const MyCalendar = ({
     color: string
   }[]
 }) => {
+  const settingsStore = useSettingsStore()
   const today = new Date()
   return (
-    <div className="print:visible print:pt-0 flex justify-center items-center pt-10">
+    <div
+      className="print:visible print:pt-0 flex justify-center items-center pt-10"
+      id="section-to-print"
+    >
       <Calendar
         className="max-w-7xl w-full"
         localizer={localizer}
@@ -66,9 +71,26 @@ const MyCalendar = ({
         endAccessor="end"
         defaultView="work_week"
         culture="fr"
+        step={settingsStore.step}
         views={['work_week']}
-        min={new Date(today.getFullYear(), today.getMonth(), today.getDate(), 6)}
-        max={new Date(today.getFullYear(), today.getMonth(), today.getDate(), 20)}
+        min={
+          new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate(),
+            settingsStore.startHour.hour,
+            settingsStore.startHour.minute
+          )
+        }
+        max={
+          new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate(),
+            settingsStore.endHour.hour,
+            settingsStore.endHour.minute
+          )
+        }
         messages={defaulMessages}
         onSelectEvent={(event) => {
           Swal.fire({

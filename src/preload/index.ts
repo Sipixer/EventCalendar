@@ -1,11 +1,9 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import * as fs from 'fs'
 import { loadAllXlsxInDb } from './EventLoader'
 
 // Custom APIs for renderer
 export const api = {
-  fs,
   loadAllXlsxInDb
 }
 
